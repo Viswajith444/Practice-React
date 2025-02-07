@@ -42,6 +42,7 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
+    color : yellow;
 }
 
 .bar {
@@ -50,6 +51,7 @@
     background-color: white;
     margin: 4px 0;
     transition: 0.4s;
+    color : yellow;
 }
 
 /* Responsive Styles */
