@@ -1,0 +1,25 @@
+.i{
+    /* background-color: aqua; */
+    position: relative;
+
+    /* top: 100px;
+    left : 50px; */
+
+    z-index: 10;
+}
+
+.iii{
+    background-color: yellow;
+    position: relative;
+    z-index: 2;
+}
+
+.back{
+    top: 50px;
+    left: 50px;
+    background-color: green;
+    position: absolute;
+    z-index: 1;
+
+    border: gold;
+}
