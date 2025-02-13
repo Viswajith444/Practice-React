@@ -37,7 +37,9 @@
     color: #f39c12;
 }
 
-.testing{
-    border: 2px solid gold;
-    position: absolute;
+
+input[id=name]{
+    border: 5px solid rgba(255, 215, 0, 0.5);
+    /* position: absolute; */
+    border-radius: 5px;
 }
