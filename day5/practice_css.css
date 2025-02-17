@@ -144,3 +144,34 @@
 
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
+
+.mouse{
+  border: 5px solid grey;
+  width: 100px;
+  height: 100px;
+
+  /* animation: roam 4s; */
+  /* transition: ; */
+}
+.mouse:active{
+  animation: roam 4s ;
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes roam{
+  from{
+    /* transform: translateX(100px); */
+    background: linear-gradient(to left,  red , blue) right;
+  }
+
+  50%{
+    /* transform: translateY(-100px); */
+    background: linear-gradient(rgb(239, 135, 135), rgb(121, 230, 212) 75%, rgb(141, 224, 228))
+  }
+
+  75%{
+    /* transfrom: translateY(100px); */
+    transform: scale(1.2);
+  }
+}
