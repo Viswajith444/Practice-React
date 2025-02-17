@@ -73,3 +73,26 @@ console.log(a^b)//101
 console.log(~c)//-14
 console.log(10<<3)//80
 console.log(10>>3)//1*/
+
+
+//TASK :: practise remaining three types of function based on parameter and argument
+function hasArgument(num){
+    console.log("This has a argument",num);
+}
+hasArgument(3);
+function hasReturn(){
+    return "Hello";
+}
+str = hasReturn();
+console.log(str);
+function ReturnAndArgument(x , y){
+    return x*y;
+}
+console.log(ReturnAndArgument(2,4));
+
+let fn = (num) =>{
+    console.log(`callback function: ${num}`);
+    return num;
+}
+
+console.log(fn(5));
