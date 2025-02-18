@@ -1,39 +1,84 @@
+// let p =  new Promise( resolve => setTimeout(_ =>{
+//   console.log("inside Promise");
+//   resolve();
+// }, 1000));
 
-// Rewrite the above function using async/await. Create an async function that waits for the Promise to resolve and logs the message.
-async function run() {
-    // Your code here
-    let p = await new Promise((resolve) =>{
-      setTimeout(()=>{
-        resolve("Promise resolved!");
-      }, 2000)
-    });
+let p = new Promise( resolve => {
+  resolve(1);
+})
 
-    return p;
-  }
+function pauseAsync(delay) {
+  return new Promise(resolve => setTimeout(resolve, delay));
+}
 
-  run().then((message)=> {
-    console.log(message);
-  }); // Should log "Promise resolved!" after 2 seconds
+function pause(delay){
+  let start = Date.now();
+  while(Date.now() - start < delay) {}
 
+}
 
-  //Write an async function that fetches data from the following API and logs the result:
-  //Use fetch and await to handle the asynchronous operation. Handle errors using try/catch.
-  //https://jsonplaceholder.typicode.com/posts/1
-
-  async function fetchPost() {
-    // Your code here
-   let p = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-    try{
-        if(!p.ok){
-            throw new Error("Oops");
-        }
-        let user = await p.json();
-        return user;
+async function fn1(res) {
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      // await pauseAsync(3000);
+      pause(3000);
     }
-    catch(error){
-        console.log("lol");
-    }
-
+    console.log("fn1: " + i);
   }
+  res();
+}
 
-  fetchPost(); // Should log the post data or an error message
+async function fn2(res) {
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      // await pauseAsync(2000);
+      pause(10000);
+    }
+    console.log("fn2= " + i);
+  }
+  // setTimeout(() => res(), 2000);
+  res();
+}
+
+async function holy() {
+  let t1 = new Promise(fn1);
+  let t2 = new Promise(fn2);
+  return await Promise.all([t1, t2]);
+}
+
+holy();
+
+
+
+// console.log(t1);
+
+// async function holy(){
+//   let t1 = new Promise(fn1);
+
+//   let t2 = new Promise(fn2);
+//   return await Promise.all([t1,t2]);
+// }
+
+console.log(p);
+console.log("here");
+// console.log(p.then( res => res()));
+// console.log(p.resolve());
+// console.log(p.then( res => console.log("hello there")));
+// console.log(holy().then(res => console.log(res)));
+// console.log(holy());
+
+
+
+// console.log(Promise.resolve());
+
+// async function fn(){
+  //   return Promise.all();
+  // }
+
+  // console.log(fn());
+
+//  let a = p
+  // .then(_ => console.log("Hello There"));
+  // .catch(_ => console.log("Nope"));
+
+// console.log(a);

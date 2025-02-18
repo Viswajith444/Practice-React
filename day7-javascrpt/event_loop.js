@@ -1,10 +1,14 @@
 console.log("Synchronous 1");
 
-setTimeout( _ => console.log("Set Timeout 2"), 0);
+let timeid = setTimeout( _ => {
+    console.log("Set Timeout 2");
+}, 0);
 
-Promise.resolve().then(_ => console.log("Promise 3"));
+new Promise(_ => console.log("inside Promise 3"));
 
-console.log("Synchronous 4");
+Promise.resolve().then(_ => console.log("Promise 4"));
+
+console.log("Synchronous 5");
 
 // Output:
 
