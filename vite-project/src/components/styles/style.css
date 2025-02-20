@@ -1,0 +1,10 @@
+.navbar{
+    display: flex;
+
+    justify-content: space-evenly;
+    background-color: rgb(50, 43, 43);
+}
+
+.navbar a{
+    color: white;
+}

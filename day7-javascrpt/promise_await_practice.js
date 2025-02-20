@@ -20,8 +20,8 @@ function pause(delay){
 async function fn1(res) {
   for (let i = 0; i < 10; i++) {
     if (i === 5) {
-      // await pauseAsync(3000);
-      pause(3000);
+      await pauseAsync(3000);
+      // pause(3000);
     }
     console.log("fn1: " + i);
   }
@@ -31,8 +31,8 @@ async function fn1(res) {
 async function fn2(res) {
   for (let i = 0; i < 10; i++) {
     if (i === 5) {
-      // await pauseAsync(2000);
-      pause(10000);
+      await pauseAsync(2000);
+      // pause(10000);
     }
     console.log("fn2= " + i);
   }
