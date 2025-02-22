@@ -15,12 +15,15 @@ nav {
   background-color: yellowgreen;
 }
 
-nav ul, nav ol{
-    list-style: none;
+nav ul,
+nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
-  display: block;
+  display: inline-block;
   text-align: center;
   text-decoration: none;
   width: 100%;
@@ -38,13 +41,13 @@ ul.navbar {
 }
 
 ul.navbar > li {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
   align-items: center;
 
   position: relative;
   min-width: 5rem;
-
+  padding: 0 1rem;
   transition: background-color 0.1s, height 0.5s;
 }
 
@@ -53,41 +56,43 @@ ul.navbar > li:hover {
 }
 
 ul.dropdown-menu {
-  display: flex;
-
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-
-  flex-direction: column;
   position: absolute;
-  width: 100%;
+
+  background: linear-gradient(135deg, blue, purple);
+  display: flex;
+  flex-direction: column;
+
   top: 100%;
+  left: 0;
+
+  min-width: max-content;
+  width: 100%;
+
+  /* visibility: hidden; */
 }
 
 ul.dropdown-menu > li {
-  display: grid;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
   background-color: green;
 
-  grid-template-columns: 1fr;
-  align-items: center;
-
-  height: 100%;
-  width: 100%;
+  padding: 0 1rem;
 
   height: 0;
   min-height: 0;
-  min-width: 10rem; /*MUTABLE*/
+
+  width: 100%;
+  min-width: max-content; /*MUTABLE*/
+
   box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.476);
 
   overflow: clip;
-  transition: .3s;
+  transition: 0.3s;
 }
-
-ul.dropdown-menu:hover > li,
-ul.navbar > li:hover > ul.dropdown-menu > li {
+ul.navbar > li:hover > ul.dropdown-menu > li,
+ul.dropdown-menu:hover > li {
   min-height: 3rem;
 }
 
@@ -99,8 +104,8 @@ ul.navbar > li:hover > ul.dropdown-menu > li {
   50% {
     opacity: 0;
   }
-  65%{
-    opacity: .5;
+  65% {
+    opacity: 0.5;
   }
   to {
     opacity: 1;

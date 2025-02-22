@@ -1,34 +1,44 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+// import { useState } from "react";
 import "./styles/navbar.css";
 
-function DropdownMenu() {
-  return (
-    <ul className="dropdown-menu">
-      <li>
-        <a href="#">Hello</a>
+function DropdownMenu({ items }) {
+  let menu = [];
+  for (let i in items) {
+    let t = (
+      <li key={i}>
+        <a href={items[i].ref}>{items[i].text}</a>
       </li>
-      <li>
-        <a href="#">World</a>
-      </li>
-    </ul>
-  );
+    );
+    menu.push(t);
+  }
+
+  return <ul className="dropdown-menu">{menu}</ul>;
 }
+
+DropdownMenu.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      ref: PropTypes.string,
+      text: PropTypes.string,
+    })
+  ),
+};
 
 function Navbar({ items, last_nth, thickness }) {
   let n = items.length;
   // const [hoveredIndex, setHoveredIndex] = useState(null); // Track which item is hovered
 
   let nav_items = items.map((ele, i) => (
-    <li
-      key={i}
-      // onMouseEnter={() => setHoveredIndex(i)}
-      // onMouseLeave={() => setHoveredIndex(null)}
-    >
+    <li key={i}>
       <a href={ele.ref}> {ele.text} </a>
 
-      {/* {hoveredIndex === i && <DropdownMenu />} Only render dropdown on hover */}
-      <DropdownMenu />
+      <DropdownMenu
+        items={[
+          { ref: "#", text: "Hello" },
+          { ref: "#", text: "World" },
+        ]}
+      />
     </li>
   ));
 
