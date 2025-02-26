@@ -17,7 +17,7 @@ app.use(cors());
 mongoose
   // .connect("mongodb://localhost:27017/sjit")
   // eslint-disable-next-line no-undef
-  .connect(process.env.LOCAL_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error(err));
 
@@ -40,6 +40,10 @@ app.get("/", (req, res) => {
 app.get("/lol", (_, res) =>{
     res.send("😁😁😁😁");
 })
+
+// app.post("/:id",(req, res)=>{
+//   {id} =
+// })
 
 // Start the server
 // const PORT = process.env.PORT || 5000;
