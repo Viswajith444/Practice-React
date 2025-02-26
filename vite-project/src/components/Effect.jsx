@@ -17,7 +17,7 @@ function Effect() {
       res.push(
         <span key={key} style={{ paddingRight: "15px" }}>
           {key !== " " ? key : "💨"}:{obj[key]}{" "}
-        </span>
+        </span>,
       );
     }
 
@@ -34,24 +34,26 @@ function Effect() {
     return dp(count);
   };
 
-
-
   return (
     <>
-      <h4>Type here</h4>
-      <textarea
-        rows="4"
-        cols="50"
-        value={typeBody} // Controlled by React state
-        onChange ={(e) => setText(() => e.target.value)} // Updates state on input change
-        // onKeyDown={(e) => {
-        //   console.log(e.key);
-        //   console.log(e);
-        // }}
-        placeholder="Type your message..."
-      />
-      {/* <h1>{alphaCount(typeBody)}</h1> */}
-      <h1>{alphaCount(typeBody)}</h1>
+      <h2>Type here</h2>
+      <div className="bg-linear-135 max-w-1/2 from-cyan-400 from-10% to-blue-500 to-80% w-max">
+        <textarea
+          rows="4"
+          cols="50"
+          value={typeBody} // Controlled by React state
+          onChange={(e) => setText(() => e.target.value)} // Updates state on input change
+          // onKeyDown={(e) => {
+          //   console.log(e.key);
+          //   console.log(e);
+          // }}
+          placeholder="Type your message..."
+
+          // className="w-max"
+        />
+        {/* <h1>{alphaCount(typeBody)}</h1> */}
+        <h1>{alphaCount(typeBody)}</h1>
+      </div>
     </>
   );
 }

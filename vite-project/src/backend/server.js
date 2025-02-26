@@ -1,7 +1,11 @@
+// user: hisoka
+// password: K25jAtWkja68k0pw
+
 import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
 import dotenv from "dotenv";
+import cors from "cors";
+import mongoose from "mongoose"
+
 
 dotenv.config();
 const app = express();
@@ -9,8 +13,11 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
+
 mongoose
-  .connect("mongodb://localhost:27017/sjit")
+  // .connect("mongodb://localhost:27017/sjit")
+  // eslint-disable-next-line no-undef
+  .connect(process.env.LOCAL_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error(err));
 
@@ -20,9 +27,11 @@ let schema = new mongoose.Schema({
     age : Number,
 })
 
-const sjit = new mongoose.model("sjit", schema);
-let a = new sjit({name: "Bob"});
-console.log(a);
+const sjit = new mongoose.model("", schema, "sjitk");
+let x = await sjit.find();
+console.log(x);
+
+
 // Define a sample API route
 app.get("/", (req, res) => {
   res.send("Hello from backend!");
@@ -34,5 +43,6 @@ app.get("/lol", (_, res) =>{
 
 // Start the server
 // const PORT = process.env.PORT || 5000;
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// const PORT = 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

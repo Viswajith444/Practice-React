@@ -10,15 +10,17 @@ import Effect from "./components/Effect.jsx";
 function App() {
   //should write Navbar info here
 
+  // child routing
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <>
-          <Home />
-          <h1 className="text-4xl font-bold">Welcome</h1>
-        </>
-      ),
+      element: <Home />,
+      children: [
+        {
+          path: "/Effect",
+          element: <Effect />,
+        },
+      ],
     },
     {
       path: "/About",
@@ -31,24 +33,20 @@ function App() {
     },
     {
       path: "/Effect",
-      element:(
+      element: (
         <>
           <Home />
           <br />
           <Effect />
         </>
-      )
-    }
+      ),
+    },
   ]);
 
   return (
-    <main>
+    <main className="mt-[var(--navbar-height)]">
       {/* <Navbar items={nav_items} last_nth={1} /> */}
       <RouterProvider router={routes} />
-
-      <p className="h-30 w-1/2 bg-green-400 font-bold text-red-700">
-        Hello world
-      </p>
     </main>
   );
 }
