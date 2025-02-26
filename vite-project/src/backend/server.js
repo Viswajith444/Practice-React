@@ -27,7 +27,7 @@ let schema = new mongoose.Schema({
     age : Number,
 })
 
-const sjit = new mongoose.model("", schema, "sjitk");
+const sjit = new mongoose.model("", schema, "sjit");
 let x = await sjit.find();
 console.log(x);
 
