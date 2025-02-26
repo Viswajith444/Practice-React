@@ -22,14 +22,14 @@ mongoose
   .catch((err) => console.error(err));
 
 
-let schema = new mongoose.Schema({
-    name: String,
-    age : Number,
-})
+// let schema = new mongoose.Schema({
+//     name: String,
+//     age : Number,
+// })
 
-const sjit = new mongoose.model("", schema, "sjit");
-let x = await sjit.find();
-console.log(x);
+// const sjit = new mongoose.model("", schema, "sjit");
+// let x = await sjit.find();
+// console.log(x);
 
 
 // Define a sample API route
@@ -44,5 +44,5 @@ app.get("/lol", (_, res) =>{
 // Start the server
 // const PORT = process.env.PORT || 5000;
 
-// const PORT = 5000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
