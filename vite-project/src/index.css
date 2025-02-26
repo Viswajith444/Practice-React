@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,6 +27,7 @@ a:hover {
 }
 
 body {
+  @apply m-auto;
   margin: 0;
   margin-top: var(--navbar-height);
   /* height: 100vh; */

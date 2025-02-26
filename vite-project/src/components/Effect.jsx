@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 function Effect() {
   //   const typingArea = {
@@ -7,8 +7,6 @@ function Effect() {
   //   };
 
   const [typeBody, setText] = useState("");
-  const [output, setOut] = useState("");
-  let string = useRef("");
 
   console.log("render outside effect");
 
@@ -26,7 +24,7 @@ function Effect() {
     return res;
   }
 
-  let alphaCount = (str) => {
+  var alphaCount = (str) => {
     let count = {};
 
     for (let char of str) {
@@ -36,35 +34,7 @@ function Effect() {
     return dp(count);
   };
 
-  useEffect(() => {
-    function dp(obj) {
-      let res = [];
 
-      for (let key in obj) {
-        res.push(
-          <span key={key} style={{ paddingRight: "15px" }}>
-            {key !== " " ? key : "💨"}:{obj[key]}{" "}
-          </span>
-        );
-      }
-
-      return res;
-    }
-
-    let alphaCount = (str) => {
-      let count = {};
-
-      for (let char of str) {
-        let letter = char;
-        count[letter] = (count[letter] || 0) + 1;
-      }
-      return dp(count);
-    };
-
-    // setOut(alphaCount(typeBody));
-    // string.current = alphaCount(typeBody);
-    console.log("render inside effect");
-  }, [typeBody]);
 
   return (
     <>

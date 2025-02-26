@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom"
 // import { useState } from "react";
 import "./styles/navbar.css";
 
@@ -31,7 +32,7 @@ function Navbar({ items, last_nth, thickness }) {
 
   let nav_items = items.map((ele, i) => (
     <li key={i}>
-      <a href={ele.ref}> {ele.text} </a>
+      <Link to={ele.ref}> {ele.text} </Link>
 
       <DropdownMenu
         items={[
@@ -46,7 +47,7 @@ function Navbar({ items, last_nth, thickness }) {
     let obj = items[n - last_nth];
     nav_items[n - last_nth] = (
       <li key={n - last_nth} style={{ marginLeft: "auto" }}>
-        <a href={obj.ref}>{obj.text}</a>
+        <Link to={obj.ref}>{obj.text}</Link>
       </li>
     );
   }
