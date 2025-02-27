@@ -12,7 +12,7 @@ function Home() {
 
     return (
         <>
-            <Navbar items={nav_items} last_nth={1} />
+            <Navbar items={nav_items} last_nth={1}  />
             <Outlet />
         </>
     );

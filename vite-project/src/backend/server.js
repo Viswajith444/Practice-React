@@ -2,35 +2,15 @@
 // password: K25jAtWkja68k0pw
 
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
-import mongoose from "mongoose"
+// import mongoose from "mongoose"
+import req_data from "./models.js";
 
-
-dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-
-mongoose
-  // .connect("mongodb://localhost:27017/sjit")
-  // eslint-disable-next-line no-undef
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error(err));
-
-
-// let schema = new mongoose.Schema({
-//     name: String,
-//     age : Number,
-// })
-
-// const sjit = new mongoose.model("", schema, "sjit");
-// let x = await sjit.find();
-// console.log(x);
-
 
 // Define a sample API route
 app.get("/", (req, res) => {
@@ -41,12 +21,19 @@ app.get("/lol", (_, res) =>{
     res.send("😁😁😁😁");
 })
 
-// app.post("/:id",(req, res)=>{
-//   {id} =
-// })
+app.post("/:id", async (req, res)=>{
+  const {id} = req.params;
+  const itsjson = req.body;
 
-// Start the server
-// const PORT = process.env.PORT || 5000;
+
+
+  console.log(id);
+  console.log(itsjson);
+  let x = await req_data.find(itsjson);
+  console.log(x);
+  res.status(200).send(x);
+})
+
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
